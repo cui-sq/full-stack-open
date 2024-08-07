@@ -1,0 +1,14 @@
+0.6 What happens when the user creates a new note on the single-page app version page?
+
+```mermaid
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/spa
+activate server
+Note right of browser: The browser sends the new note as JSON data to the server, e.g.{ "content": "HTML is easy", "date": "2023-1-1" }.
+server-->>browser: HTTP status code: 201
+deactivate server
+Note right of browser: The server responds with status code 201 created. The browser stays on the same page.
+```
